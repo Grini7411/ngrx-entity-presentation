@@ -10,13 +10,14 @@ import {Observable} from "rxjs";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersComponent implements OnInit{
-  public users$: Observable<User[]> | undefined;
+  public users$: Observable<User[] | null> | undefined;
 
   public auxService = inject(AuxService);
 
-
   ngOnInit(): void {
-    this.users$ = this.auxService.fetchUsers();
+    this.auxService.fetchUsers();
+
+    this.users$ = this.auxService.usersSelector$;
   }
 
 

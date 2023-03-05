@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {UserComponent} from "./features/user/user.component";
 import {AuxService} from "./aux.service";
 import {HttpClientModule} from "@angular/common/http";
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {UsersModule} from "./features/users/users.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +18,11 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    UserComponent
+    UsersModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode(), name: 'ngrx-entity-session'}),
+    UsersModule
   ],
   providers: [AuxService],
   bootstrap: [AppComponent]

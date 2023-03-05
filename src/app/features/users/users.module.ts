@@ -19,7 +19,7 @@ import {UserEffects} from "../../store/users/user.effects";
     BrowserModule,
     CommonModule,
     UserComponent,
-    StoreModule.forFeature(userFeatureKey, [usersReducer]),
+    StoreModule.forFeature(userFeatureKey, usersReducer),
     EffectsModule.forFeature([UserEffects]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode(), name: 'ngrx-entity-session'})
   ],
