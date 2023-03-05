@@ -1,3 +1,5 @@
-<ng-container *ngFor="let user of users$ | async">
-  <app-user class="" [user]="user"></app-user>
-</ng-container>
+<div class="grid grid-cols-4 gap-4">
+  <ng-container *ngFor="let user of users$ | async">
+    <app-user class="" [user]="user"></app-user>
+  </ng-container>
+</div>

@@ -1,12 +1,12 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {User} from "../../../../models/user.model";
-import {JsonPipe} from "@angular/common";
+import {MatCardModule} from "@angular/material/card";
 
 @Component({
   selector: 'app-user',
   standalone: true,
   imports: [
-    JsonPipe
+    MatCardModule
   ],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
