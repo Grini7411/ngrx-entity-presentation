@@ -1,7 +1,4 @@
 <h1>Welcome to the app</h1>
 <section class="flex-1 flex-col">
-  <ng-container *ngFor="let user of users | async">
-    <app-user class="" [user]="user"></app-user>
-  </ng-container>
-
+  <app-users></app-users>
 </section>
