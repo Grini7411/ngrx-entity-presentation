@@ -20,24 +20,9 @@ export const newUsersReducer = createReducer(
   on(usersActions.addUser,
     (state, {user}) => adapter.addOne(user, state)
   ),
-  // on(UsersActions.addUserss,
-  //   (state, action) => adapter.addMany(action.userss, state)
-  // ),
-  // on(UsersActions.upsertUserss,
-  //   (state, action) => adapter.upsertMany(action.userss, state)
-  // ),
-  // on(UsersActions.updateUsers,
-  //   (state, action) => adapter.updateOne(action.users, state)
-  // ),
-  // on(UsersActions.updateUserss,
-  //   (state, action) => adapter.updateMany(action.userss, state)
-  // ),
   on(usersActions.removeUser,
-    (state, action) => adapter.removeOne(action.name, state)
+    (state, action) => adapter.removeOne(action.id, state)
   ),
-  // on(UsersActions.deleteUserss,
-  //   (state, action) => adapter.removeMany(action.ids, state)
-  // ),
   on(usersActions.loadAllUsersSuccess,
     (state, action) => adapter.addMany(action.users, state)
   )

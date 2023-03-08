@@ -8,4 +8,7 @@
   <mat-card-content>
     <div>Email: {{user.email}}</div>
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="warn" (click)="userDelete.emit(user.id)">Delete</button>
+  </mat-card-actions>
 </mat-card>

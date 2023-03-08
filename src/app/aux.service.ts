@@ -18,4 +18,8 @@ export class AuxService {
     this.store.dispatch(usersActions.loadAllUsers())
     // return this.apiService.getUsers();
   }
+
+  deleteUser(id: number) {
+    this.store.dispatch(usersActions.removeUser({id}))
+  }
 }
