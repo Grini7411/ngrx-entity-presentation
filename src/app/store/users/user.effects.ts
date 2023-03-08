@@ -23,7 +23,6 @@ export class UserEffects {
     concatLatestFrom(() => this.store.select(userIdsSelector)),
     map(([{user}, ids]: [{ user: User }, number[]]) => {
       const lastIndex = ids[ids.length - 1] ?? 0;
-      // user.id = lastIndex + 1;
       const newUser: User = {
         id: lastIndex + 1,
         company: user.company,
