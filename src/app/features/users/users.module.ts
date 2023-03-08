@@ -5,10 +5,10 @@ import {EffectsModule} from "@ngrx/effects";
 import {StoreModule} from "@ngrx/store";
 import {UserComponent} from "./components/user/user.component";
 import {CommonModule} from "@angular/common";
-import {userFeatureKey, usersReducer} from "../../store/users/user.reducer";
 import {BrowserModule} from "@angular/platform-browser";
 import {UsersComponent} from "./users.component";
 import {UserEffects} from "../../store/users/user.effects";
+import {newUsersReducer, usersFeatureKey} from "../../store/users/users.reducer";
 
 
 @NgModule({
@@ -19,7 +19,7 @@ import {UserEffects} from "../../store/users/user.effects";
     BrowserModule,
     CommonModule,
     UserComponent,
-    StoreModule.forFeature(userFeatureKey, usersReducer),
+    StoreModule.forFeature(usersFeatureKey, newUsersReducer),
     EffectsModule.forFeature([UserEffects]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode(), name: 'ngrx-entity-session'})
   ],

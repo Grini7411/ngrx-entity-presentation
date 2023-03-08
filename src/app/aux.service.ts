@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {ApiService} from "./api/api.service";
 import {Store} from "@ngrx/store";
-import {usersSelector} from "./store/users/user.selectors";
 import {usersActions} from "./store/users/user.actions";
 import {map, Observable} from "rxjs";
 import {User} from "./models/user.model";
+import {usersSelector} from "./store/users/users.selectors";
 
 @Injectable()
 export class AuxService {
