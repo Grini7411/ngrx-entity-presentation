@@ -17,7 +17,7 @@ export const initialState: UserEntityState = adapter.getInitialState({
 
 export const newUsersReducer = createReducer(
   initialState,
-  on(usersActions.addUser,
+  on(usersActions.addUserSuccess,
     (state, {user}) => adapter.addOne(user, state)
   ),
   on(usersActions.removeUser,

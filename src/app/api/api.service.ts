@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
-import {User} from "../models/user.model";
+import {map, Observable} from "rxjs";
+import {User, UserResponse} from "../models/user.model";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,15 @@ export class ApiService {
   getUsers(): Observable<User[]> {
     const url = this.BASE_URL + '/users';
 
-    return this.http.get<User[]>(url);
+    return this.http.get<UserResponse[]>(url).pipe(
+      map((users: UserResponse[]) => {
+        return users.map(user => ({
+          id:      user.id,
+          name:    user.name,
+          company: user.company.name,
+          email:   user.email
+        }))
+      })
+    );
   }
 }

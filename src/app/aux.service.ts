@@ -22,4 +22,8 @@ export class AuxService {
   deleteUser(id: number) {
     this.store.dispatch(usersActions.removeUser({id}))
   }
+
+  addUser(user: User) {
+    this.store.dispatch(usersActions.addUser({user}))
+  }
 }

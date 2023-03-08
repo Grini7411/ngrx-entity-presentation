@@ -1,0 +1,17 @@
+<div class="flex flex-col justify-center items-center my-8" [formGroup]="addUserForm">
+  <h2>Add User</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input type="text" matInput formControlName="name">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Company</mat-label>
+    <input type="text" matInput formControlName="company">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input type="text" matInput formControlName="email">
+  </mat-form-field>
+
+  <button mat-button color="primary" (click)="addUser()">Add User</button>
+</div>
