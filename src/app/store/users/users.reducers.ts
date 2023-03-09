@@ -25,5 +25,16 @@ export const usersReducers = createReducer(
       ...state,
       users: newUsers
     }
+  }),
+  on(usersActions.addUserSuccess, (state, {user}) => {
+    let newUsers: User[] = [];
+
+    if (Array.isArray(state?.users)) {
+      newUsers = [...state.users, user];
+    }
+    return {
+      ...state,
+      users: newUsers
+    }
   })
 )

@@ -4,14 +4,14 @@ import {usersActions} from "./users.actions";
 import {map, switchMap} from "rxjs";
 import {ApiService} from "../../api/api.service";
 import {User} from "../../models/user.model";
-import {usersSelector} from "./user.selectors";
+import {usersSelector} from "./users.selectors";
 import {Store} from "@ngrx/store";
 import {UserState} from "./users.reducers";
 
 
 
 @Injectable()
-export class UserEffects {
+export class UsersEffects {
 
   private readonly loadUsers$ = createEffect(() => this.actions$.pipe(
     ofType(usersActions.loadAllUsers.type),
