@@ -1,7 +1,27 @@
-import { createReducer, on } from '@ngrx/store';
+import {
+  createActionGroup,
+  createFeatureSelector,
+  createReducer,
+  createSelector,
+  emptyProps,
+  on,
+  props
+} from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
-import {usersActions} from "./user.actions";
 import {User} from "../../models/user.model";
+
+
+export const usersActions = createActionGroup({
+  source: 'User Effect',
+  events: {
+    'Load all users': emptyProps(),
+    'Load all users success': props<{users: User[]}>(),
+    'Add user': props<{user: User}>(),
+    'Add user success': props<{user: User}>(),
+    'Remove user': props<{id: number}>()
+  }
+})
+
 
 export const usersFeatureKey = 'users';
 
@@ -34,3 +54,18 @@ export const {
   selectAll,
   selectTotal,
 } = adapter.getSelectors();
+
+
+export const usersFeatureSelector = createFeatureSelector<UserEntityState>('users');
+
+export const usersSelector = createSelector(
+  usersFeatureSelector,
+  selectAll
+);
+
+
+export const userIdsSelector = createSelector(
+  usersFeatureSelector,
+  selectIds as (state: EntityState<User>) => number[]
+);
+

@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import {ApiService} from "./api/api.service";
 import {Store} from "@ngrx/store";
-import {usersActions} from "./store/users/user.actions";
 import {map, Observable} from "rxjs";
 import {User} from "./models/user.model";
-import {usersSelector} from "./store/users/users.selectors";
+import {usersActions, usersSelector} from "./store/users/users.reducer";
 
 @Injectable()
 export class AuxService {
@@ -16,7 +15,6 @@ export class AuxService {
 
   fetchUsers(): void {
     this.store.dispatch(usersActions.loadAllUsers())
-    // return this.apiService.getUsers();
   }
 
   deleteUser(id: number) {
