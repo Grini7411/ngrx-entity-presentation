@@ -8,7 +8,7 @@ import {CommonModule} from "@angular/common";
 import {BrowserModule} from "@angular/platform-browser";
 import {UsersComponent} from "./users.component";
 import {UserEffects} from "../../store/users/user.effects";
-import {newUsersReducer, usersFeatureKey} from "../../store/users/users.reducer";
+import {newUsersReducer, usersFeatureKey} from "../../store/users/users.entity";
 
 
 @NgModule({

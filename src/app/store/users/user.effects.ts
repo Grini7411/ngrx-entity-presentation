@@ -4,7 +4,7 @@ import {map, switchMap} from "rxjs";
 import {ApiService} from "../../api/api.service";
 import {User} from "../../models/user.model";
 import {Store} from "@ngrx/store";
-import {userIdsSelector, usersActions} from "./users.reducer";
+import {userIdsSelector, usersActions} from "./users.entity";
 
 
 @Injectable()

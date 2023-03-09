@@ -3,7 +3,7 @@ import {ApiService} from "./api/api.service";
 import {Store} from "@ngrx/store";
 import {map, Observable} from "rxjs";
 import {User} from "./models/user.model";
-import {usersActions, usersSelector} from "./store/users/users.reducer";
+import {usersActions, usersSelector} from "./store/users/users.entity";
 
 @Injectable()
 export class AuxService {
