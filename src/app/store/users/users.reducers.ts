@@ -1,6 +1,6 @@
 import {createReducer, on} from '@ngrx/store';
 import {User} from "../../models/user.model";
-import {usersActions} from "./user.actions";
+import {usersActions} from "./users.actions";
 
 
 export const userFeatureKey = 'user';
@@ -13,11 +13,17 @@ export const initialState: UserState = {
   users: null
 };
 
-export const usersReducer = createReducer(
+export const usersReducers = createReducer(
   initialState,
   on(usersActions.loadAllUsersSuccess, (state, {users}) => ({
       ...state,
       users
+  })),
+  on(usersActions.removeUser, (state, {id}) => {
+    const newUsers = state?.users?.filter(user => user.id !== id) ?? state.users
+    return {
+      ...state,
+      users: newUsers
+    }
   })
-  )
 )

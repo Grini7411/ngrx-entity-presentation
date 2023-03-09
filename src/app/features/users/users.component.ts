@@ -20,5 +20,7 @@ export class UsersComponent implements OnInit{
     this.users$ = this.auxService.usersSelector$;
   }
 
-
+  deleteUser(id: number) {
+    this.auxService.deleteUser(id);
+  }
 }

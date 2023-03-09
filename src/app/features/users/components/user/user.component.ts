@@ -1,12 +1,14 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 import {User} from "../../../../models/user.model";
 import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-user',
   standalone: true,
   imports: [
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
@@ -14,4 +16,5 @@ import {MatCardModule} from "@angular/material/card";
 })
 export class UserComponent {
   @Input() user!: User;
+  @Output() userDelete = new EventEmitter<number>();
 }

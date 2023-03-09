@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import {UsersModule} from "./features/users/users.module";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AddUserComponent} from "./features/add-user/add-user.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode(), name: 'ngrx-entity-session'}),
     UsersModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AddUserComponent
   ],
   providers: [AuxService],
   bootstrap: [AppComponent]
